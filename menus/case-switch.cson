@@ -1,0 +1,22 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Toggle case-switch'
+      'command': 'case-switch:toggle'
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'case-switch'
+      'submenu': [
+        {
+          'label': 'Toggle'
+          'command': 'case-switch:toggle'
+        }
+      ]
+    ]
+  }
+]
