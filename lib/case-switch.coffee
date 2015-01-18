@@ -16,7 +16,6 @@ module.exports = CaseSwitch =
 
 
 
-
 class Selector
   @editor = null
   @selection = null
@@ -27,7 +26,7 @@ class Selector
   toggleSelection: ->
     @selection = @getText()
     if @selection.indexOf("-") > -1
-      @setText @selection.replace('-', '_')
+      @setText @minusToSnake(@selection)
 
   getText: ->
     selection = @editor.getLastSelection()
@@ -36,3 +35,6 @@ class Selector
   setText: (string) ->
     selection = @editor.getLastSelection()
     selection.insertText string
+
+  minusToSnake: (string) ->
+    string.replace(/-/g, "_")
