@@ -1,5 +1,7 @@
 # case-switch package
 
+Atom editor package to change variable names from hyphen- to snake- to camelCase.
+
 ### This version currently supports conversion from
 * hypen-case to snake_case
 * snake_case to camelCase
