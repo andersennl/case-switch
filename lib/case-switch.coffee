@@ -1,4 +1,5 @@
 CaseSwitchView = require './case-switch-view'
+Selector = require './selector'
 {CompositeDisposable} = require 'atom'
 
 module.exports = CaseSwitch =
@@ -12,29 +13,3 @@ module.exports = CaseSwitch =
   toggle: ->
     selector = new Selector
     selector.toggleSelection()
-
-
-
-
-class Selector
-  @editor = null
-  @selection = null
-
-  constructor: ->
-    @editor = atom.workspace.getActivePaneItem()
-
-  toggleSelection: ->
-    @selection = @getText()
-    if @selection.indexOf("-") > -1
-      @setText @minusToSnake(@selection)
-
-  getText: ->
-    selection = @editor.getLastSelection()
-    @lastSelection = selection.getText()
-
-  setText: (string) ->
-    selection = @editor.getLastSelection()
-    selection.insertText string
-
-  minusToSnake: (string) ->
-    string.replace(/-/g, "_")
