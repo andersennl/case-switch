@@ -1,5 +1,10 @@
 # case-switch package
 
-A short description of your package.
+### This version currently supports conversion from
+* hypen-case to snake_case
+* snake_case to camelCase
 
-![A screenshot of your package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
+You can easily toggle through them with the `toggle` command or
+use direct conversion by specific commands from the command palette.
+
+### Coming soon: camelCase to hypen-case conversion.

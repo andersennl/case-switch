@@ -10,7 +10,7 @@ module.exports = CaseSwitch =
   activate: ->
     atom.commands.add 'atom-workspace', "case-switch:toggle", => @toggle()
     atom.commands.add 'atom-workspace', "case-switch:snake-to-camel-case", => @snakeToCamelCase()
-    atom.commands.add 'atom-workspace', "case-switch:minus-to-snake-case", => @minusToSnakeCase()
+    atom.commands.add 'atom-workspace', "case-switch:hypen-to-snake-case", => @hypenToSnakeCase()
 
   toggle: ->
     @getSelector().toggleSelection()
@@ -18,8 +18,8 @@ module.exports = CaseSwitch =
   snakeToCamelCase: ->
     @getSelector().snakeToCamel()
 
-  minusToSnakeCase: ->
-    @getSelector().minusToSnake()
+  hypenToSnakeCase: ->
+    @getSelector().hypenToSnake()
 
   getSelector: ->
     selector = new Selector

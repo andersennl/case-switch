@@ -8,7 +8,7 @@ class Selector
   toggleSelection: ->
     selection = @getText()
     if selection.indexOf('-') > -1
-      @minusToSnake(selection)
+      @hypenToSnake(selection)
     if selection.indexOf('_') > -1
       @snakeToCamel(selection)
     # if has camel case
@@ -23,7 +23,7 @@ class Selector
     selection = @editor.getLastSelection()
     selection.insertText string
 
-  minusToSnake: (string) ->
+  hypenToSnake: (string) ->
     string ?= @getText()
     @setText string.replace(/-/g, '_')
 
