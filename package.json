@@ -6,7 +6,7 @@
   "activationCommands": {
     "atom-workspace": "case-switch:hypen-to-snake-case"
   },
-  "repository": "https://github.com/andersennl/case-switch",
+  "repository": "git@github.com:andersennl/case-switch.git",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
