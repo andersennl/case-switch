@@ -3,10 +3,8 @@
   "main": "./lib/case-switch",
   "version": "0.3.3",
   "description": "Atom editor package to change variable names from hyphen- to snake- to camelCase.",
-  "activationCommands": {
-    "atom-workspace": "case-switch:hypen-to-snake-case"
-  },
   "repository": "https://github.com/andersennl/case-switch",
+  "activationCommands": {},
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
