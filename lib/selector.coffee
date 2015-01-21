@@ -25,11 +25,15 @@ class Selector
 
   hypenToSnake: (string) ->
     string ?= @getText()
-    @setText string.replace(/-/g, '_')
+    count = @countHyphenOccurance(string)
+    if count > 0
+      for i in [1..count]
+        string = string.replace(/-/, '_')
+      @setText string
 
   snakeToCamel: (string) ->
     string ?= @getText()
-    count = @countOccurance(string)
+    count = @countSnakeOccurance(string)
     if count > 0
       for i in [1..count]
         index = string.indexOf('_') + 1
@@ -41,5 +45,8 @@ class Selector
   setCharAt: (str,index,chr) ->
     str.substr(0,index) + chr + str.substr(index+1)
 
-  countOccurance: (string) ->
+  countSnakeOccurance: (string) ->
     (@getText().match(/_/g) || []).length
+
+  countHyphenOccurance: (string) ->
+    (@getText().match(/-/g) || []).length
