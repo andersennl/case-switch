@@ -6,14 +6,19 @@ Atom editor package to change variable/method names from hyphen- to snake- to ca
 There are three ways to convert your selected text.
 
 ## Direct conversion
-You can let Atom decide on what case you've selected and just say what you want to have in the end.
+By using the methods below, you let Atom detect what type-case your currectly selected text has. You just have to choose what case you want the text to be.
 
-* `cmd-c cmd-c` switch to camelCase
-* `cmd-c cmd-s` switch to snake_case
-* `cmd-c cmd-h` switch to hyphen-case
+* `cmd-c cmd-c` switches selected text to camelCase
+* `cmd-c cmd-s` switches selected text to snake_case
+* `cmd-c cmd-h` switches selected text to hyphen-case
+
+## Toggling through cases
+Easily toggle through the cases for a selected text. This is probably the most useful command. *currently the text isn't selected anymore after switchting - this will be fixed soon.*
+
+(Default: `cmd-c cmd-t` on OS X)
 
 ## From-to conversion
-You can use (and bind) the following switches to directly change the case of a selected text.
+You can use the following switches to change the case of a selected text.
 * hyphen-case to snake_case
 * hyphen-case to camelCase
 * snake_case to hyphen-case
@@ -21,11 +26,8 @@ You can use (and bind) the following switches to directly change the case of a s
 * camelCase to hyphen-case
 * camelCase to snake_case
 
-## Toggling through cases
-You can toggle through the cases for a selected text.
-(Default: `cmd-c cmd-t` on OS X)
-
 # Roadmap
+* fix toggle function loosing selection
 * convert multiple selections at once
 
 # Contribution
