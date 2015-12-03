@@ -16,7 +16,7 @@ I didn't add default keybindings as there are just too many direct commands.
 
 ## Toggling through cases
 You can toggle through the cases for a selected text.
-(Default: `alt-cmd-c` on OS X)
+(Default: `option-cmd-c` on OS X)
 
 # Roadmap
 * convert multiple selections at once
