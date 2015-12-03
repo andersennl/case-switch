@@ -8,15 +8,15 @@
 # For more detailed documentation see
 # https://atom.io/docs/latest/advanced/keymaps
 'atom-workspace':
-  "cmd-c cmd-t": 'case-switch:toggle'
-  "cmd-c cmd-c": "case-switch:convert-to-camel-case"
-  "cmd-c cmd-s": "case-switch:convert-to-snake-case"
-  "cmd-c cmd-h": "case-switch:convert-to-hyphen-case"
-  "cmd-c cmd-u": "case-switch:snake-to-camel-case"
-  "cmd-c cmd-v": "case-switch:snake-to-hyphen-case"
+  "ctrl-c ctrl-t": 'case-switch:toggle'
+  "ctrl-c ctrl-c": "case-switch:convert-to-camel-case"
+  "ctrl-c ctrl-s": "case-switch:convert-to-snake-case"
+  "ctrl-c ctrl-h": "case-switch:convert-to-hyphen-case"
+  "ctrl-c ctrl-u": "case-switch:snake-to-camel-case"
+  "ctrl-c ctrl-v": "case-switch:snake-to-hyphen-case"
 
-  "cmd-c cmd-w": "case-switch:hyphen-to-snake-case"
-  "cmd-c cmd-x": "case-switch:hyphen-to-camel-case"
+  "ctrl-c ctrl-w": "case-switch:hyphen-to-snake-case"
+  "ctrl-c ctrl-x": "case-switch:hyphen-to-camel-case"
 
-  "cmd-c cmd-y": "case-switch:camel-to-hyphen-case"
-  "cmd-c cmd-z": "case-switch:camel-to-snake-case"
+  "ctrl-c ctrl-y": "case-switch:camel-to-hyphen-case"
+  "ctrl-c ctrl-z": "case-switch:camel-to-snake-case"
