@@ -8,9 +8,9 @@ There are three ways to convert your selected text.
 ## Direct conversion
 You can let Atom decide on what case you've selected and just say what you want to have in the end.
 
-*`cmd-c cmd-c` switch to camelCase
-*`cmd-c cmd-s` switch to snake_case
-*`cmd-c cmd-h` switch to hyphen-case
+* `cmd-c cmd-c` switch to camelCase
+* `cmd-c cmd-s` switch to snake_case
+* `cmd-c cmd-h` switch to hyphen-case
 
 ## From-to conversion
 You can use (and bind) the following switches to directly change the case of a selected text.
