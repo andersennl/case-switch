@@ -11,6 +11,7 @@ You can use (and bind) the following switches to directly change the case of a s
 * snake_case to camelCase
 * camelCase to hypen-case
 * camelCase to snake_case
+
 I didn't add default keybindings as there are just too many direct commands.
 
 ## Toggling through cases
