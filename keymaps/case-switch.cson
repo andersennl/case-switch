@@ -9,5 +9,3 @@
 # https://atom.io/docs/latest/advanced/keymaps
 'atom-workspace':
   'alt-cmd-c': 'case-switch:toggle'
-  'alt-cmd-v': 'case-switch:snake-to-camel-case'
-  'alt-cmd-b': 'case-switch:hypen-to-snake-case'
