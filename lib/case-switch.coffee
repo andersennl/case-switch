@@ -12,13 +12,13 @@ module.exports = CaseSwitch =
 
     atom.commands.add 'atom-workspace', "case-switch:convert-to-camel-case", => @convertToCamelCase()
     atom.commands.add 'atom-workspace', "case-switch:convert-to-snake-case", => @convertToSnakeCase()
-    atom.commands.add 'atom-workspace', "case-switch:convert-to-hypen-case", => @convertToHypenCase()
+    atom.commands.add 'atom-workspace', "case-switch:convert-to-hyphen-case", => @convertToHyphenCase()
 
     atom.commands.add 'atom-workspace', "case-switch:snake-to-camel-case", => @snakeToCamelCase()
     atom.commands.add 'atom-workspace', "case-switch:snake-to-hyphen-case", => @snakeToHyphenCase()
 
-    atom.commands.add 'atom-workspace', "case-switch:hypen-to-snake-case", => @hypenToSnakeCase()
-    atom.commands.add 'atom-workspace', "case-switch:hypen-to-camel-case", => @hypenToCamelCase()
+    atom.commands.add 'atom-workspace', "case-switch:hyphen-to-snake-case", => @hyphenToSnakeCase()
+    atom.commands.add 'atom-workspace', "case-switch:hyphen-to-camel-case", => @hyphenToCamelCase()
 
     atom.commands.add 'atom-workspace', "case-switch:camel-to-hyphen-case", => @camelToHyphenCase()
     atom.commands.add 'atom-workspace', "case-switch:camel-to-snake-case", => @camelToSnakeCase()
@@ -32,8 +32,8 @@ module.exports = CaseSwitch =
   convertToSnakeCase: ->
     @getSelector().convertToSnake()
 
-  convertToHypenCase: ->
-    @getSelector().convertToHypen()
+  convertToHyphenCase: ->
+    @getSelector().convertToHyphen()
 
   snakeToCamelCase: ->
     @getSelector().snakeToCamel()
@@ -41,11 +41,11 @@ module.exports = CaseSwitch =
   snakeToHyphenCase: ->
     @getSelector().snakeToHyphen()
 
-  hypenToSnakeCase: ->
-    @getSelector().hypenToSnake()
+  hyphenToSnakeCase: ->
+    @getSelector().hyphenToSnake()
 
-  hypenToCamelCase: ->
-    @getSelector().hypenToCamel()
+  hyphenToCamelCase: ->
+    @getSelector().hyphenToCamel()
 
   camelToHyphenCase: ->
     @getSelector().camelToHyphen()

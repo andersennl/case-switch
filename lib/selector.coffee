@@ -6,8 +6,8 @@ class Selector
     @editor = atom.workspace.getActivePaneItem()
 
   toggleSelection: ->
-    if @isHypenCase()
-      @hypenToSnake()
+    if @isHyphenCase()
+      @hyphenToSnake()
     if @isSnakeCase()
       @snakeToCamel()
     if @isCamelCase()
@@ -23,24 +23,24 @@ class Selector
     selection.insertText string
 
   convertToCamel: ->
-    if @isHypenCase()
-      @hypenToCamel()
+    if @isHyphenCase()
+      @hyphenToCamel()
     if @isSnakeCase()
       @snakeToCamel()
 
   convertToSnake: ->
-    if @isHypenCase()
-      @hypenToSnake()
+    if @isHyphenCase()
+      @hyphenToSnake()
     if @isCamelCase()
       @camelToSnake()
 
-  convertToHypen: ->
+  convertToHyphen: ->
     if @isSnakeCase()
-      @snakeToHypen()
+      @snakeToHyphen()
     if @isCamelCase()
-      @camelToHypen()
+      @camelToHyphen()
 
-  isHypenCase: ->
+  isHyphenCase: ->
     @getText().indexOf('-') > -1
 
   isSnakeCase: ->
@@ -60,19 +60,19 @@ class Selector
         string = string.replace(/_/, '')
       @setText string
 
-  snakeToHypen: ->
+  snakeToHyphen: ->
     @setText @getText().replace /([a-zA-Z0-9])(_)([a-zA-Z0-9])/g, "$1-$3"
 
-  hypenToSnake: ->
+  hyphenToSnake: ->
     @setText @getText().replace /([a-zA-Z0-9])(-)([a-zA-Z0-9])/g, "$1_$3"
 
-  hypenToCamel: ->
+  hyphenToCamel: ->
     string = @getText()
     string = string.replace /(?:-)([a-z])/g, (v) ->
       v.toUpperCase()
     @setText string.replace /-/g, ""
 
-  camelToHypen: ->
+  camelToHyphen: ->
     string = @getText()
     string = string.replace /([a-z0-9])([A-Z])/g, "$1-$2"
     @setText string.toLowerCase()
