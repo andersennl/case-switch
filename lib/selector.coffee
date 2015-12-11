@@ -13,44 +13,38 @@ class Selector
     if @isCamelCase()
       @camelToHyphen()
 
-  getText: ->
-    selection = @editor.getLastSelection()
-    selection.getText()
-
-  setText: (string) ->
-    string ?= @getText()
-    selection = @editor.getLastSelection()
-    selection.insertText string
-
   convertToCamel: ->
-    if @isHyphenCase()
-      @hyphenToCamel()
-    if @isSnakeCase()
-      @snakeToCamel()
+    for selection in @editor.getSelections()
+      if @isHyphenCase(selection)
+        @hyphenToCamel(selection)
+      if @isSnakeCase(selection)
+        @snake_to_camel(selection)
 
   convertToSnake: ->
-    if @isHyphenCase()
-      @hyphenToSnake()
-    if @isCamelCase()
-      @camelToSnake()
+    for selection in @editor.getSelections()
+      if @isHyphenCase(selection)
+        @hyphenToSnake(selection)
+      if @isCamelCase(selection)
+        @camelToSnake(selection)
 
   convertToHyphen: ->
-    if @isSnakeCase()
-      @snakeToHyphen()
-    if @isCamelCase()
-      @camelToHyphen()
+    for selection in @editor.getSelections()
+      if @isSnakeCase(selection)
+        @snakeToHyphen(selection)
+      if @isCamelCase(selection)
+        @camelToHyphen(selection)
 
-  isHyphenCase: ->
-    @getText().indexOf('-') > -1
+  isHyphenCase: (selection) ->
+    selection.getText().indexOf('-') > -1
 
-  isSnakeCase: ->
-    @getText().indexOf('_') > -1
+  isSnakeCase: (selection) ->
+    selection.getText().indexOf('_') > -1
 
-  isCamelCase: ->
-    /[A-Z]/.test(@getText())
+  isCamelCase: (selection) ->
+    /[A-Z]/.test(selection.getText())
 
-  snakeToCamel: ->
-    string = @getText()
+  snakeToCamel: (selection) ->
+    string = selection.getText()
     count = @countSnakeOccurance()
     if count > 0
       for i in [1..count]
@@ -58,35 +52,37 @@ class Selector
         char = string.charAt index
         string = @setCharAt(string, index, char.toUpperCase())
         string = string.replace(/_/, '')
-      @setText string
+      selection.insertText(string)
 
-  snakeToHyphen: ->
-    @setText @getText().replace /([a-zA-Z0-9])(_)([a-zA-Z0-9])/g, "$1-$3"
+  snakeToHyphen: (selection) ->
+    text = selection.getText()
+    selection.insertText(text.replace /([a-zA-Z0-9])(_)([a-zA-Z0-9])/g, "$1-$3")
 
-  hyphenToSnake: ->
-    @setText @getText().replace /([a-zA-Z0-9])(-)([a-zA-Z0-9])/g, "$1_$3"
+  hyphenToSnake: (selection) ->
+    text = selection.getText()
+    selection.insertText(text.replace /([a-zA-Z0-9])(-)([a-zA-Z0-9])/g, "$1_$3")
 
-  hyphenToCamel: ->
-    string = @getText()
+  hyphenToCamel: (selection) ->
+    string = selection.getText()
     string = string.replace /(?:-)([a-z])/g, (v) ->
       v.toUpperCase()
-    @setText string.replace /-/g, ""
+    selection.insertText(string.replace /-/g, "")
 
-  camelToHyphen: ->
-    string = @getText()
+  camelToHyphen: (selection) ->
+    string = selection.getText()
     string = string.replace /([a-z0-9])([A-Z])/g, "$1-$2"
-    @setText string.toLowerCase()
+    selection.insertText(string.toLowerCase())
 
-  camelToSnake: ->
-    string = @getText()
+  camelToSnake: (selection) ->
+    string = selection.getText()
     string = string.replace /([a-z0-9])([A-Z])/g, "$1_$2"
-    @setText string.toLowerCase()
+    selection.insertText(string.toLowerCase())
 
   setCharAt: (str,index,chr) ->
     str.substr(0,index) + chr + str.substr(index+1)
 
-  countSnakeOccurance: ->
-    (@getText().match(/_/g) || []).length
+  countSnakeOccurance: (selection) ->
+    (selection.getText().match(/_/g) || []).length
 
-  countHyphenOccurance: ->
-    (@getText().match(/-/g) || []).length
+  countHyphenOccurance: (selection) ->
+    (selection.getText().match(/-/g) || []).length

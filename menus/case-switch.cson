@@ -10,11 +10,23 @@
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'case-switch'
+      'label': 'Case Switch'
       'submenu': [
         {
           'label': 'Toggle'
           'command': 'case-switch:toggle'
+        },
+        {
+          'label': 'Convert to CamelCase'
+          'command': 'case-switch:convert-to-camel-case'
+        },
+        {
+          'label': 'Convert to snake_case'
+          'command': 'case-switch:convert-to-snake-case'
+        },
+        {
+          'label': 'Convert to hyphen-case'
+          'command': 'case-switch:convert-to-hyphen-case'
         }
       ]
     ]
