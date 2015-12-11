@@ -12,11 +12,3 @@
   "ctrl-c ctrl-c": "case-switch:convert-to-camel-case"
   "ctrl-c ctrl-s": "case-switch:convert-to-snake-case"
   "ctrl-c ctrl-h": "case-switch:convert-to-hyphen-case"
-  "ctrl-c ctrl-u": "case-switch:snake-to-camel-case"
-  "ctrl-c ctrl-v": "case-switch:snake-to-hyphen-case"
-
-  "ctrl-c ctrl-w": "case-switch:hyphen-to-snake-case"
-  "ctrl-c ctrl-x": "case-switch:hyphen-to-camel-case"
-
-  "ctrl-c ctrl-y": "case-switch:camel-to-hyphen-case"
-  "ctrl-c ctrl-z": "case-switch:camel-to-snake-case"
