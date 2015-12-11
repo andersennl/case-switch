@@ -1,3 +1,3 @@
 ## Update
-Enhanced functionality by adding more conversions
+Now works with multiple selections (each with different style).
 
