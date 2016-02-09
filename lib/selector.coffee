@@ -6,19 +6,20 @@ class Selector
     @editor = atom.workspace.getActivePaneItem()
 
   toggleSelection: ->
-    if @isHyphenCase()
-      @hyphenToSnake()
-    if @isSnakeCase()
-      @snakeToCamel()
-    if @isCamelCase()
-      @camelToHyphen()
+    for selection in @editor.getSelections()
+      if @isHyphenCase(selection)
+        @hyphenToSnake(selection)
+      else if @isSnakeCase(selection)
+        @snakeToCamel(selection)
+      else if @isCamelCase(selection)
+        @camelToHyphen(selection)
 
   convertToCamel: ->
     for selection in @editor.getSelections()
       if @isHyphenCase(selection)
         @hyphenToCamel(selection)
       if @isSnakeCase(selection)
-        @snake_to_camel(selection)
+        @snakeToCamel(selection)
 
   convertToSnake: ->
     for selection in @editor.getSelections()
@@ -45,44 +46,37 @@ class Selector
 
   snakeToCamel: (selection) ->
     string = selection.getText()
-    count = @countSnakeOccurance()
-    if count > 0
-      for i in [1..count]
-        index = string.indexOf('_') + 1
-        char = string.charAt index
-        string = @setCharAt(string, index, char.toUpperCase())
-        string = string.replace(/_/, '')
-      selection.insertText(string)
+    while string.indexOf('_') >= 0
+      index = string.indexOf('_') + 1
+      char = string.charAt index
+      string = @setCharAt(string, index, char.toUpperCase())
+      string = string.replace(/_/, '')
+
+    selection.insertText(string, select: true)
 
   snakeToHyphen: (selection) ->
     text = selection.getText()
-    selection.insertText(text.replace /([a-zA-Z0-9])(_)([a-zA-Z0-9])/g, "$1-$3")
+    selection.insertText(text.replace(/([a-zA-Z0-9])(_)([a-zA-Z0-9])/g, "$1-$3"), select: true)
 
   hyphenToSnake: (selection) ->
     text = selection.getText()
-    selection.insertText(text.replace /([a-zA-Z0-9])(-)([a-zA-Z0-9])/g, "$1_$3")
+    selection.insertText(text.replace(/([a-zA-Z0-9])(-)([a-zA-Z0-9])/g, "$1_$3"), select: true)
 
   hyphenToCamel: (selection) ->
     string = selection.getText()
     string = string.replace /(?:-)([a-z])/g, (v) ->
       v.toUpperCase()
-    selection.insertText(string.replace /-/g, "")
+    selection.insertText(string.replace(/-/g, ""), select: true)
 
   camelToHyphen: (selection) ->
     string = selection.getText()
     string = string.replace /([a-z0-9])([A-Z])/g, "$1-$2"
-    selection.insertText(string.toLowerCase())
+    selection.insertText(string.toLowerCase(), select: true)
 
   camelToSnake: (selection) ->
     string = selection.getText()
     string = string.replace /([a-z0-9])([A-Z])/g, "$1_$2"
-    selection.insertText(string.toLowerCase())
+    selection.insertText(string.toLowerCase(), select: true)
 
   setCharAt: (str,index,chr) ->
     str.substr(0,index) + chr + str.substr(index+1)
-
-  countSnakeOccurance: (selection) ->
-    (selection.getText().match(/_/g) || []).length
-
-  countHyphenOccurance: (selection) ->
-    (selection.getText().match(/-/g) || []).length
