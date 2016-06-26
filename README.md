@@ -15,7 +15,7 @@ By using the methods below, you let Atom detect what type-case your currectly se
 ## Toggling through cases
 Easily toggle through the cases for a selected text. This is probably the most useful command. *currently the text isn't selected anymore after switchting - this will be fixed soon.*
 
-(Default: `ctrl-c ctrl-t` on OS X)
+(Default: `alt-c ctrl-t` on OS X)
 
 # Roadmap
 * fix toggle function loosing selection
