@@ -8,9 +8,9 @@ There are two ways to convert your selected text.
 ## Direct conversion
 By using the methods below, you let Atom detect what type-case your currectly selected text has. You just have to choose what case you want the text to be.
 
-* `ctrl-c ctrl-c` switches selected text to camelCase
-* `ctrl-c ctrl-s` switches selected text to snake_case
-* `ctrl-c ctrl-h` switches selected text to hyphen-case
+* `alt-c ctrl-c` switches selected text to camelCase
+* `alt-c ctrl-s` switches selected text to snake_case
+* `alt-c ctrl-k` switches selected text to kebab-case
 
 ## Toggling through cases
 Easily toggle through the cases for a selected text. This is probably the most useful command. *currently the text isn't selected anymore after switchting - this will be fixed soon.*
