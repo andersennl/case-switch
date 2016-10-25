@@ -2,7 +2,7 @@
   "name": "case-switch",
   "main": "./lib/case-switch",
   "version": "2.2.2",
-  "description": "Atom editor package to change variable names from hyphen- to snake- to camelCase.",
+  "description": "Atom editor package to change variable names from kebab- to snake- to camelCase.",
   "repository": "https://github.com/andersennl/case-switch",
   "activationCommands": {},
   "license": "MIT",

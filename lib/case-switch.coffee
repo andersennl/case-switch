@@ -11,7 +11,7 @@ module.exports = CaseSwitch =
     atom.commands.add 'atom-workspace', "case-switch:toggle", => @toggle()
     atom.commands.add 'atom-workspace', "case-switch:convert-to-camel-case", => @convertToCamelCase()
     atom.commands.add 'atom-workspace', "case-switch:convert-to-snake-case", => @convertToSnakeCase()
-    atom.commands.add 'atom-workspace', "case-switch:convert-to-hyphen-case", => @convertToHyphenCase()
+    atom.commands.add 'atom-workspace', "case-switch:convert-to-kebab-case", => @convertToKebabCase()
 
   toggle: ->
     @getSelector().toggleSelection()
@@ -22,8 +22,8 @@ module.exports = CaseSwitch =
   convertToSnakeCase: ->
     @getSelector().convertToSnake()
 
-  convertToHyphenCase: ->
-    @getSelector().convertToHyphen()
+  convertToKebabCase: ->
+    @getSelector().convertToKebab()
 
   getSelector: ->
     selector = new Selector

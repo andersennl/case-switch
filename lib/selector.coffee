@@ -7,35 +7,35 @@ class Selector
 
   toggleSelection: ->
     for selection in @editor.getSelections()
-      if @isHyphenCase(selection)
-        @hyphenToSnake(selection)
+      if @isKebabCase(selection)
+        @kebabToSnake(selection)
       else if @isSnakeCase(selection)
         @snakeToCamel(selection)
       else if @isCamelCase(selection)
-        @camelToHyphen(selection)
+        @camelToKebab(selection)
 
   convertToCamel: ->
     for selection in @editor.getSelections()
-      if @isHyphenCase(selection)
-        @hyphenToCamel(selection)
+      if @isKebabCase(selection)
+        @kebabToCamel(selection)
       if @isSnakeCase(selection)
         @snakeToCamel(selection)
 
   convertToSnake: ->
     for selection in @editor.getSelections()
-      if @isHyphenCase(selection)
-        @hyphenToSnake(selection)
+      if @isKebabCase(selection)
+        @kebabToSnake(selection)
       if @isCamelCase(selection)
         @camelToSnake(selection)
 
-  convertToHyphen: ->
+  convertToKebab: ->
     for selection in @editor.getSelections()
       if @isSnakeCase(selection)
-        @snakeToHyphen(selection)
+        @snakeToKebab(selection)
       if @isCamelCase(selection)
-        @camelToHyphen(selection)
+        @camelToKebab(selection)
 
-  isHyphenCase: (selection) ->
+  isKebabCase: (selection) ->
     selection.getText().indexOf('-') > -1
 
   isSnakeCase: (selection) ->
@@ -54,21 +54,21 @@ class Selector
 
     selection.insertText(string, select: true)
 
-  snakeToHyphen: (selection) ->
+  snakeToKebab: (selection) ->
     text = selection.getText()
     selection.insertText(text.replace(/([a-zA-Z0-9])(_)([a-zA-Z0-9])/g, "$1-$3"), select: true)
 
-  hyphenToSnake: (selection) ->
+  kebabToSnake: (selection) ->
     text = selection.getText()
     selection.insertText(text.replace(/([a-zA-Z0-9])(-)([a-zA-Z0-9])/g, "$1_$3"), select: true)
 
-  hyphenToCamel: (selection) ->
+  kebabToCamel: (selection) ->
     string = selection.getText()
     string = string.replace /(?:-)([a-z])/g, (v) ->
       v.toUpperCase()
     selection.insertText(string.replace(/-/g, ""), select: true)
 
-  camelToHyphen: (selection) ->
+  camelToKebab: (selection) ->
     string = selection.getText()
     string = string.replace /([a-z0-9])([A-Z])/g, "$1-$2"
     selection.insertText(string.toLowerCase(), select: true)

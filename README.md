@@ -1,6 +1,6 @@
 # Case Switch package for Atom editor
 
-Atom editor package to change variable/method names from hyphen- to snake- to camelCase and back again.
+Atom editor package to change variable/method names from kebab- to snake- to camelCase and back again.
 
 # Functionality
 There are two ways to convert your selected text.

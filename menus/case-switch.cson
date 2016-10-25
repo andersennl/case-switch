@@ -25,8 +25,8 @@
           'command': 'case-switch:convert-to-snake-case'
         },
         {
-          'label': 'Convert to hyphen-case'
-          'command': 'case-switch:convert-to-hyphen-case'
+          'label': 'Convert to kebab-case'
+          'command': 'case-switch:convert-to-kebab-case'
         }
       ]
     ]
