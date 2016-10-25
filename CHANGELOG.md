@@ -1,3 +1,3 @@
 ## Update
-Now works with multiple selections (each with different style).
-
+- fixed keybindings
+- changed wording and fixed typos
